@@ -1,34 +1,36 @@
-package zup.orange.desafio.casadocodigo.entities;
+package zup.orange.desafio.casadocodigo.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "state")
-public class States {
+@Table(name = "country")
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    @ManyToOne
-    private Country country;
-
     @Deprecated
-    public States() {
+    public Country() {
     }
 
-    public States(String name, Country country) {
+    public Country(String name) {
         this.name = name;
-        this.country = country;
     }
 
+    public void setName(String name) {this.name = name; }
+
+    public String getName() { return name; }
+
+    public Long getId() {
+        return id;
+    }
 
     @Override
     public String toString() {
-        return "State{" +
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", country=" + country +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package zup.orange.desafio.casadocodigo.entities;
+package zup.orange.desafio.casadocodigo.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

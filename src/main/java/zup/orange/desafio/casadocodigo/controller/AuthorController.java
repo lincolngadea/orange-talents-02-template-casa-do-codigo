@@ -3,8 +3,8 @@ package zup.orange.desafio.casadocodigo.controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import zup.orange.desafio.casadocodigo.entities.Author;
-import zup.orange.desafio.casadocodigo.dto.AuthorInDto;
+import zup.orange.desafio.casadocodigo.entity.Author;
+import zup.orange.desafio.casadocodigo.dto.request.NewAuthorRequest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,7 +19,7 @@ public class AuthorController {
 
     @Transactional
     @PostMapping(value = "/actors")
-    public String save(@RequestBody @Valid AuthorInDto request){
+    public String save(@RequestBody @Valid NewAuthorRequest request){
         Author author = request.toModel();
         entityManager.persist(author);
         return author.toString();

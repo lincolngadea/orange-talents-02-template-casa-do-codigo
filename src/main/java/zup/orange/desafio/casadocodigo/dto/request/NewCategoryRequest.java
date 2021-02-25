@@ -1,11 +1,11 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.request;
 
 import zup.orange.desafio.casadocodigo.validators.annotations.UniqueValue;
-import zup.orange.desafio.casadocodigo.entities.Category;
+import zup.orange.desafio.casadocodigo.entity.Category;
 
 import javax.validation.constraints.NotBlank;
 
-public class CategoryInDto {
+public class NewCategoryRequest {
 
     @NotBlank
     @UniqueValue(fieldName = "name",domainClass = Category.class,message = "O Campo Nome é obrigatório...")

@@ -1,19 +1,19 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.response;
 
-import zup.orange.desafio.casadocodigo.entities.Book;
+import zup.orange.desafio.casadocodigo.entity.Book;
 
-public class BookOutDto {
+public class BookResponseDto {
 
     private Long id;
     private String title;
 
-    public BookOutDto(Book book){
+    public BookResponseDto(Book book){
         this.id = book.getId();
         this.title = book.getTitle();
     }
 
     @Deprecated
-    public BookOutDto() {
+    public BookResponseDto() {
     }
 
     public Long getId() {

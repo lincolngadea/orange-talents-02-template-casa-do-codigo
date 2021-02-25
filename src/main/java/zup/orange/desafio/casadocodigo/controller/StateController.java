@@ -4,8 +4,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import zup.orange.desafio.casadocodigo.dto.StatesInDto;
-import zup.orange.desafio.casadocodigo.entities.States;
+import zup.orange.desafio.casadocodigo.dto.request.StateOfCountryRequestDto;
+import zup.orange.desafio.casadocodigo.entity.StateOfCountry;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,10 +19,10 @@ public class StateController {
 
     @PostMapping("/state")
     @Transactional
-    public String save(@RequestBody @Valid StatesInDto stateRequest){
+    public String save(@RequestBody @Valid StateOfCountryRequestDto stateRequest){
 
-        States states = stateRequest.toModel(manager);
-        manager.persist(states);
-        return states.toString();
+        StateOfCountry stateOfCountry = stateRequest.toModel(manager);
+        manager.persist(stateOfCountry);
+        return stateOfCountry.toString();
     }
 }

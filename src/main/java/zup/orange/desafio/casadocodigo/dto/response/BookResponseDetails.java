@@ -1,6 +1,6 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.response;
 
-import zup.orange.desafio.casadocodigo.entities.Book;
+import zup.orange.desafio.casadocodigo.entity.Book;
 
 import java.math.BigDecimal;
 

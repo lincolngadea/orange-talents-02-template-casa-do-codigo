@@ -1,4 +1,4 @@
-package zup.orange.desafio.casadocodigo.entities;
+package zup.orange.desafio.casadocodigo.entity;
 
 
 import javax.persistence.*;
@@ -6,7 +6,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @Entity
 @Table(name = "autor")

@@ -5,10 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import zup.orange.desafio.casadocodigo.dto.BookInDto;
-import zup.orange.desafio.casadocodigo.dto.BookOutDto;
-import zup.orange.desafio.casadocodigo.dto.BookResponseDetails;
-import zup.orange.desafio.casadocodigo.entities.Book;
+import zup.orange.desafio.casadocodigo.dto.request.NewBookRequest;
+import zup.orange.desafio.casadocodigo.dto.response.BookResponseDto;
+import zup.orange.desafio.casadocodigo.dto.response.BookResponseDetails;
+import zup.orange.desafio.casadocodigo.entity.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,7 +25,7 @@ public class BookController {
 
     @Transactional
     @PostMapping("/books")
-    public String save(@RequestBody @Valid BookInDto request){
+    public String save(@RequestBody @Valid NewBookRequest request){
 
         Book book = request.toModel(manager);
         manager.persist(book);
@@ -34,10 +34,10 @@ public class BookController {
 
     @GetMapping("/books")
     @Transactional(readOnly = true)
-    public List<BookOutDto> bookList(){
+    public List<BookResponseDto> bookList(){
         return manager.createQuery("from Book", Book.class)
                 .getResultStream()
-                .map(BookOutDto::new)
+                .map(BookResponseDto::new)
                 .collect(Collectors.toList());
     }
 

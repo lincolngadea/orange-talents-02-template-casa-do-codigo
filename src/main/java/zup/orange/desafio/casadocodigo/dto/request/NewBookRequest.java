@@ -1,18 +1,18 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.util.Assert;
 import zup.orange.desafio.casadocodigo.validators.annotations.ExistsId;
-import zup.orange.desafio.casadocodigo.entities.Author;
-import zup.orange.desafio.casadocodigo.entities.Book;
-import zup.orange.desafio.casadocodigo.entities.Category;
+import zup.orange.desafio.casadocodigo.entity.Author;
+import zup.orange.desafio.casadocodigo.entity.Book;
+import zup.orange.desafio.casadocodigo.entity.Category;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class BookInDto {
+public class NewBookRequest {
 
     @Size(max = 180)
     @NotBlank
@@ -46,15 +46,15 @@ public class BookInDto {
     @ExistsId(domainClass = Author.class, fieldName = "id")
     private Long actorId;
 
-    public BookInDto(@Size(max = 180)
+    public NewBookRequest(@Size(max = 180)
                    @NotBlank String title,
-                     @NotBlank @Size(max = 500) String resume,
-                     @NotBlank String summary,
-                     @NotNull @Min(20) BigDecimal price,
-                     @NotNull @Min(100) Integer numberPages,
-                     @NotBlank String isbn,
-                     @NotNull Long categoryId,
-                     @NotNull Long actorId) {
+                          @NotBlank @Size(max = 500) String resume,
+                          @NotBlank String summary,
+                          @NotNull @Min(20) BigDecimal price,
+                          @NotNull @Min(100) Integer numberPages,
+                          @NotBlank String isbn,
+                          @NotNull Long categoryId,
+                          @NotNull Long actorId) {
         this.title = title;
         this.resume = resume;
         this.summary = summary;

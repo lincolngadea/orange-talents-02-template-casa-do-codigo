@@ -1,11 +1,11 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.request;
 
-import zup.orange.desafio.casadocodigo.entities.Country;
+import zup.orange.desafio.casadocodigo.entity.Country;
 import zup.orange.desafio.casadocodigo.validators.annotations.UniqueValue;
 
 import javax.validation.constraints.NotBlank;
 
-public class CountryInDto {
+public class NewCountryRequest {
     @NotBlank
     @UniqueValue(fieldName = "name", domainClass = Country.class)
     private String name;

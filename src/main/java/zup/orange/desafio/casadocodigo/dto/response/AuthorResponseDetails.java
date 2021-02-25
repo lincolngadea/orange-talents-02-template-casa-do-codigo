@@ -1,6 +1,6 @@
-package zup.orange.desafio.casadocodigo.dto;
+package zup.orange.desafio.casadocodigo.dto.response;
 
-import zup.orange.desafio.casadocodigo.entities.Author;
+import zup.orange.desafio.casadocodigo.entity.Author;
 
 public class AuthorResponseDetails {
 
